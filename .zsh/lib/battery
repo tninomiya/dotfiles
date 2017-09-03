@@ -62,6 +62,21 @@ battery_color_ansi() {
 }
 
 # battery_color_tmux colourizes the battery level for tmux
+# battery_color_tmux() {
+#     local percentage
+#     percentage="${1:-$(get_battery)}"
+
+#     if is_charging; then
+#         [[ -n $percentage ]] && echo -e "#[fg=colour46]${percentage}#[default]"
+#     else
+#         # percentage > BATTERY_DANGER
+#         if [ "${percentage%%%*}" -ge "$BATTERY_DANGER" ]; then
+#             echo -e "#[fg=colour26]${percentage}#[default]"
+#         else
+#             echo -e "#[fg=colour160]${percentage}#[default]"
+#         fi
+#     fi
+# }
 battery_color_tmux() {
     local percentage
     percentage="${1:-$(get_battery)}"
@@ -71,7 +86,7 @@ battery_color_tmux() {
     else
         # percentage > BATTERY_DANGER
         if [ "${percentage%%%*}" -ge "$BATTERY_DANGER" ]; then
-            echo -e "#[fg=blue]${percentage}#[default]"
+            echo -e "#[fg=cyan]${percentage}#[default]"
         else
             echo -e "#[fg=red]${percentage}#[default]"
         fi

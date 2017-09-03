@@ -3,11 +3,18 @@ compinit
 zstyle ':completion:*:default' menu select=2
 
 # alias
-alias pgstart='pg_ctl -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl stop'
 alias ls='ls -G'
 alias ll='ls -la'
+
+alias tn='tmux'
+alias tls='tmux ls'
+alias ta='tmux a'
+
 alias gf='git-foresta --all --style=10 | less -RSX'
+
+alias pgstart='pg_ctl -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl stop'
+
 
 # Powerline
 function powerline_precmd() {
