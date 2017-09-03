@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd ~/dotenv/.zsh
+cd ~/dotfiles/.zsh
 git clone https://github.com/milkbikis/powerline-shell.git
 cd powerline-shell
-cp ~/dotenv/config.py.dist.sample config.py
-cp config.py.dit config.py
+cp ~/dotfiles/config.py.dist.sample config.py.dist
+cp config.py.dist config.py
 ./install.py
 
 cd ~/dotfiles

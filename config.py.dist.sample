@@ -7,6 +7,9 @@
 # prompt. Any segment you add must be present in the segments/ directory
 
 SEGMENTS = [
+# Adds a line break
+    'newline',
+
 # Set the terminal window title to user@host:dir
 #    'set_term_title',
 
@@ -44,9 +47,6 @@ SEGMENTS = [
 
 # Show the current fossil branch and status
     'fossil',
-
-# Show number of running jobs
-    'jobs',
 
 # Show the last command's exit code if it was non-zero
 #    'exit_code',
