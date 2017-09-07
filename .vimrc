@@ -109,6 +109,9 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 " インデントの可視化
 NeoBundle 'Yggdroot/indentLine'
 
+" 自動で閉じる
+NeoBundle 'tpope/vim-endwise'
+
 "----------------------------------------------------------
 call neobundle#end()
 
@@ -127,3 +130,4 @@ set showcmd " 打ったコマンドをステータスラインの下に表示
 set ruler " ステータスラインの右側にカーソルの現在位置を表示する
 set t_Co=256
 set mouse=a
+
