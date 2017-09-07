@@ -109,9 +109,10 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 " インデントの可視化
 NeoBundle 'Yggdroot/indentLine'
 
-" 自動で閉じる
+" 閉じカッコ補完
 NeoBundle 'tpope/vim-endwise'
-
+" tree表示
+NeoBundle 'scrooloose/nerdtree'
 "----------------------------------------------------------
 call neobundle#end()
 
