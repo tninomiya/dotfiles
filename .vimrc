@@ -8,11 +8,11 @@ set ambiwidth=double " □や○文字が崩れる問題を解決
 
 " tab, indent
 set expandtab " タブ入力を複数の空白入力に置き換える
-set tabstop=4 " 画面上でタブ文字が占める幅
-set softtabstop=4 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set tabstop=2 " 画面上でタブ文字が占める幅
+set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
-set shiftwidth=4 " smartindentで増減する幅
+set shiftwidth=2 " smartindentで増減する幅
 
 
 " search
@@ -64,12 +64,12 @@ endif
 
 
 " Configuration file for vim
-set modelines=0		" CVE-2007-2438
+set modelines=0     " CVE-2007-2438
 
 " Normally we use vim-extensions. If you want true vi-compatibility
 " remove change the following statements
-set nocompatible	" Use Vim defaults instead of 100% vi compatibility
-set backspace=2		" more powerful backspacing
+set nocompatible    " Use Vim defaults instead of 100% vi compatibility
+set backspace=2     " more powerful backspacing
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
@@ -113,6 +113,10 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'tpope/vim-endwise'
 " tree表示
 NeoBundle 'scrooloose/nerdtree'
+
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 "----------------------------------------------------------
 call neobundle#end()
 
@@ -121,6 +125,10 @@ filetype plugin indent on
 
 " 未インストールのVimプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 NeoBundleCheck
+
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+let g:vim_markdown_toc_autofit = 1
 
 "----------------------------------------------------------
 " ステータスラインの設定
@@ -132,3 +140,6 @@ set ruler " ステータスラインの右側にカーソルの現在位置を�
 set t_Co=256
 set mouse=a
 
+set foldmethod=marker
+highlight Folded ctermbg=238 ctermfg=244
+highlight normal ctermfg=249
