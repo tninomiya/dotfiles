@@ -18,4 +18,10 @@ repo = 'benekastah/neomake'
 repo =  'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
 repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
