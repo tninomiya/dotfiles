@@ -1,0 +1,21 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'benekastah/neomake'
+
+[[plugins]]
+repo =  'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
