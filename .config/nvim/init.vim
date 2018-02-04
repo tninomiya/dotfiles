@@ -30,6 +30,7 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch " 検索結果をハイライト
 
+
 " ファイルタイプ別のプラグイン/インデントを有効にする
 filetype plugin indent on
 
@@ -106,6 +107,7 @@ let g:go_fmt_command = "goimports"
 set background=dark
 colorscheme hybrid
 
+let g:airline_theme='powerlineish'
 set laststatus=2
 set t_Co=256
 let g:lightline = { 
@@ -124,3 +126,21 @@ let g:lightline = {
      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
      \ }
      \ }
+
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<Left>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap [ []<Left>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap < <><Left>
+inoremap <<Enter> <><Left><CR><ESC><S-o>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ` ``<Left>
+
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+set completeopt=menu,preview
