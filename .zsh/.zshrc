@@ -1,3 +1,17 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
 autoload -U compinit
 compinit
 zstyle ':completion:*:default' menu select=2
@@ -15,22 +29,22 @@ alias gf='git-foresta --all --style=10 | less -RSX'
 alias pgstart='pg_ctl -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl stop'
 
+alias vim='nvim'
 
-# Powerline
-function powerline_precmd() {
-  export PS1="$(~/dotfiles/.zsh/powerline-shell/powerline-shell.py $? --shell zsh 2> /dev/null)"
-}
-function install_powerline_precmd() {
-    for s in "${precmd_functions[@]}" ; do
-        if [ "$s" = "powerline_precmd" ] ; then
-             return
-        fi
-    done
-    precmd_functions+=(powerline_precmd)
-}
-install_powerline_precmd
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 
+fpath=($HOME/.zsh/anyframe(N-/) $fpath)
+autoload -Uz anyframe-init
+anyframe-init
 
-if [ -f ~/.launchTmux.sh ] ; then
-. ~/.launchTmux.sh
-fi
+## よく移動するディレクトリ一覧をインクリメントサーチ & 移動
+bindkey '^@' anyframe-widget-cdr
+## bash history一覧インクリメントサーチ & 実行
+bindkey '^xr' anyframe-widget-execute-history
+## branch一覧をインクリメントサーチ & checkout
+bindkey '^xb' anyframe-widget-checkout-git-branch
+## プロセス一覧をインクリメントサーチ & kill
+bindkey '^xk' anyframe-widget-kill
+## ghqでcloneしたリポジトリ一覧をインクリメントサーチ
+bindkey '^xg' anyframe-widget-cd-ghq-repository
