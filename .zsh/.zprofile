@@ -77,9 +77,13 @@ export PGDATA=/usr/local/var/postgres
 
 eval "$(rbenv init -)"
 
+export PATH=$HOME/flutter/bin:$PATH
+
 export GOPATH=~/go
 export PATH=~/go/bin:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
+
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 # 履歴ファイルの保存先
