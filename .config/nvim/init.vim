@@ -39,6 +39,9 @@ call s:source_rc('plugin/nerdtree.rc.vim')
 " vim-fugitive.vim
 call s:source_rc('plugin/vim-fugitive.rc.vim')
 
+" fzf.vim
+call s:source_rc('plugin/fzf.rc.vim')
+
 " ===LANGUAGE===
 " Go
 call s:source_rc('lang/go.rc.vim')
@@ -49,4 +52,9 @@ call s:source_rc('lang/js.rc.vim')
 " markdown
 call s:source_rc('lang/md.rc.vim')
 
+" feature
+call s:source_rc('lang/feature.rc.vim')
+
+" feature
+call s:source_rc('lang/hs.rc.vim')
 

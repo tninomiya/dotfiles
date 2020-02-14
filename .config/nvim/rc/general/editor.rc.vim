@@ -37,3 +37,8 @@ set clipboard=unnamed
 " 補完設定
 set completeopt=menu,longest
 
+let mapleader = "\<Space>"
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
+let g:loaded_sql_completion = 0
+let g:omni_sql_no_default_maps = 1
