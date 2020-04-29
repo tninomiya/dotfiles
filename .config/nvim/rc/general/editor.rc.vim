@@ -20,6 +20,8 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch " 検索結果をハイライト
 
+set inccommand=split
+
 " cursor
 set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set number " 行番号を表示
@@ -29,6 +31,15 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" https://github.com/johndgiese/dotvim/issues/4
+" Fix paste bug triggered by the above inoremaps
+set t_BE=
 
 " バックスペースキーの有効化
 set backspace=indent,eol,start
@@ -42,3 +53,8 @@ let mapleader = "\<Space>"
 autocmd InsertLeave * set nopaste
 let g:loaded_sql_completion = 0
 let g:omni_sql_no_default_maps = 1
+
+nnoremap x "_x
+nnoremap s "_s
+
+

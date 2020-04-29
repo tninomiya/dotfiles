@@ -6,30 +6,25 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+#fi
 
 # Customize to your needs...
 
 autoload -U compinit
 compinit
 zstyle ':completion:*:default' menu select=2
+setopt nonomatch
 
 # alias
 alias ls='ls -G'
 alias ll='ls -la'
 
-alias tn='tmux'
-alias tls='tmux ls'
-alias ta='tmux a'
-
 alias gf='git-foresta --all --style=10 | less -RSX'
 
-alias pgstart='pg_ctl -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl stop'
-
 alias vim='nvim'
+alias cat='lolcat'
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -41,10 +36,49 @@ anyframe-init
 ## よく移動するディレクトリ一覧をインクリメントサーチ & 移動
 bindkey '^@' anyframe-widget-cdr
 ## bash history一覧インクリメントサーチ & 実行
-bindkey '^xr' anyframe-widget-execute-history
+bindkey '^r' anyframe-widget-execute-history
 ## branch一覧をインクリメントサーチ & checkout
-bindkey '^xb' anyframe-widget-checkout-git-branch
+bindkey '^b' anyframe-widget-checkout-git-branch
 ## プロセス一覧をインクリメントサーチ & kill
 bindkey '^xk' anyframe-widget-kill
 ## ghqでcloneしたリポジトリ一覧をインクリメントサーチ
-bindkey '^xg' anyframe-widget-cd-ghq-repository
+bindkey '^g' anyframe-widget-cd-ghq-repository
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+export EDITOR=nvim
+
+export TERM=xterm-256color
+
+function peco-ssh () {
+  local selected_host=$(awk '
+  tolower($1)=="host" {
+    for (i=2; i<=NF; i++) {
+      if ($i !~ "[*?]") {
+        print $i
+      }
+    }
+  }
+  ' ~/.ssh/config | sort | peco --query "$LBUFFER")
+  if [ -n "$selected_host" ]; then
+    BUFFER="ssh ${selected_host}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-ssh
+bindkey '^h' peco-ssh
+
+function replace-githooks() {
+  if [ -e .git/hooks ]; then
+    rm -rf .git/hooks
+    ln -s ~/.git_template .git/hooks
+  fi
+}
+
+source <(kubectl completion zsh)
+
+eval "$(starship init zsh)"

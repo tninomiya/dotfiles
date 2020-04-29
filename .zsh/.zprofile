@@ -67,23 +67,10 @@ fi
 export PATH=$HOME/dotfiles/.zsh/lib:$PATH
 export PATH=$HOME/.bin:$PATH
 
-export PATH=~/Library/Android/sdk:$PATH
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-
-export PGDATA=/usr/local/var/postgres
-
-eval "$(rbenv init -)"
-
-export PATH=$HOME/flutter/bin:$PATH
 
 export GOPATH=~/go
 export PATH=~/go/bin:$PATH
-export PATH=~/Library/Android/sdk/platform-tools:$PATH
-
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
 # 履歴ファイルの保存先
@@ -97,3 +84,7 @@ export SAVEHIST=100000
 
 # 重複を記録しない
 setopt hist_ignore_dups
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export GO111MODULE=on
