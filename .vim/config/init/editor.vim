@@ -6,7 +6,11 @@ set number                        " Display column numbers.
 
 set cursorline " カーソルラインをハイライト
 
-set directory=$HOME/.vim/swap// " Set swap directory
+
+if !isdirectory(expand("$HOME/.vim/swap"))
+    call mkdir(expand("$HOME/.vim/swap"), "p")
+endif
+set directory=$HOME/.vim/swap/ " Set swap directory
 
 set undofile
 if !isdirectory(expand("$HOME/.vim/undodir"))
