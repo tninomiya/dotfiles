@@ -1,2 +1,7 @@
-.zsh/powerline-shell/
-*swp
+# General
+.DS_Store
+vim/plugged/*
+vim/undodir/*
+vim/view/*
+vim/swap/*
+vim/.netrwhist

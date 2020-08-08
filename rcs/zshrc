@@ -1,0 +1,110 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt extendedglob nomatch
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/tninomiya/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+export EDITOR=vim
+export TERM=xterm-256color
+
+# HISTORY
+setopt hist_ignore_dups
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt extended_history
+setopt hist_verify
+autoload history-search-end
+export HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
+
+# COMPLEMENT
+setopt correct
+#setopt correct_all
+setopt hist_expand
+setopt list_types
+setopt auto_list
+setopt auto_menu
+setopt list_packed
+setopt auto_param_keys
+setopt auto_param_slash
+setopt mark_dirs
+setopt auto_cd
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+setopt nolistbeep
+
+# init zplug
+if [[ ! -d ~/.zplug ]];then
+  git clone https://github.com/zplug/zplug ~/.zplug
+fi
+source ~/.zplug/init.zsh
+
+# plugin list
+# zplug "user/repo", tag
+zplug "zsh-users/zsh-completions"
+zplug "peterhurford/git-aliases.zsh"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
+# manage zplug as plugin
+zplug "zplug/zplug", hook-build:'zplug --self-manage'
+
+# install unmanged plugins
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# load plugins
+zplug load –verbose
+
+# anyframe
+fpath=(~/.zsh/anyframe(N-/) $fpath)
+
+autoload -Uz anyframe-init
+anyframe-init
+## utils
+function peco-ssh () {
+  local selected_host=$(awk '
+  tolower($1)=="host" {
+    for (i=2; i<=NF; i++) {
+      if ($i !~ "[*?]") {
+        print $i
+      }
+    }
+  }
+  ' ~/.ssh/config | sort | peco --query "$LBUFFER")
+  if [ -n "$selected_host" ]; then
+    BUFFER="ssh ${selected_host}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-ssh
+
+## cdr settings
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+## bind
+bindkey '^@' anyframe-widget-cdr
+bindkey '^r' anyframe-widget-execute-history
+bindkey '^b' anyframe-widget-checkout-git-branch
+bindkey '^xk' anyframe-widget-kill
+bindkey '^g' anyframe-widget-cd-ghq-repository
+bindkey '^h' peco-ssh
+
+# ALIAS
+alias ls='ls -G'
+alias ll='ls -la'
+
+eval "$(starship init zsh)"
