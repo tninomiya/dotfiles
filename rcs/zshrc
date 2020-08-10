@@ -12,6 +12,7 @@ zstyle :compinstall filename '/Users/tninomiya/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+export LANG=en_US.UTF-8
 
 export EDITOR=vim
 export TERM=xterm-256color
