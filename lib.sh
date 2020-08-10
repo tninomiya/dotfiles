@@ -1,8 +1,8 @@
 #/bin/bash
 brew upgrade
-brew install git zsh ghq tmux tig vim go peco alacritty starship zsh-syntax-highlighting
-brew cask install alacritty
+brew install git zsh ghq tmux tig vim go docker peco starship zsh-syntax-highlighting lazydocker mysql-client
+brew cask install alacritty iterm2 docker
 brew tap homebrew/cask-fonts
 brew cask install font-roboto-mono-nerd-font
 mkdir ~/.zsh
-git clone --depth 1 git@github.com:mollifier/anyframe.git ~/.zshrc/
+
