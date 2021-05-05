@@ -9,7 +9,9 @@ fi
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt extendedglob nomatch
+setopt nomatch
+setopt extendedglob
+unsetopt extendedglob
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -116,6 +118,9 @@ bindkey '^h' peco-ssh
 # ALIAS
 alias ls='ls -G'
 alias ll='ls -la'
+alias tjssh='tjs cmd --env $(echo "dev\nstg\nperf\nprod" | peco)'
+
+setopt interactivecomments
 
 source `brew --prefix`/opt/powerlevel10k/powerlevel10k.zsh-theme
 
