@@ -16,9 +16,6 @@ let g:go_fmt_command = "goimports"
 set autowrite
 
 "" mapping
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)

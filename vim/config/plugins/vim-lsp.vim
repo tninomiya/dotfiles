@@ -8,7 +8,6 @@ let g:lsp_text_edit_enabled = 0
 
 let g:lsp_signs_enabled = 1         " enable signs
 
-
 "autocmd BufWritePre <buffer> LspDocumentFormatSync
 "autocmd BufWritePost <buffer> LspDocumentDiagnostics
 
@@ -58,3 +57,4 @@ if executable('terraform-lsp')
     \ 'whitelist': ['terraform','tf'],
     \ })
 endif
+

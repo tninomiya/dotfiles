@@ -16,7 +16,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
 Plug 'easymotion/vim-easymotion'
-
+"
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
@@ -32,6 +32,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
 Plug 'rust-lang/rust.vim'
+
+Plug 'iberianpig/tig-explorer.vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
