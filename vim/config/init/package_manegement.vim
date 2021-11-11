@@ -40,4 +40,11 @@ Plug 'iberianpig/tig-explorer.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'tyru/open-browser.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+
+Plug 'mattn/vim-maketable'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 call plug#end()
