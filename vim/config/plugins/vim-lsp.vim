@@ -30,24 +30,12 @@ augroup lsp_install
 augroup END
 
 if executable('gopls')
-  augroup LspGo
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
         \ 'cmd': {server_info->['gopls']},
         \ 'whitelist': ['go'],
-        \ 'workspace_config': {'gopls': {
-        \     'staticcheck': v:true,
-        \     'completeUnimported': v:true,
-        \     'caseSensitiveCompletion': v:true,
-        \     'usePlaceholders': v:true,
-        \     'completionDocumentation': v:true,
-        \     'watchFileChanges': v:true,
-        \     'hoverKind': 'SingleLine',
-        \   }},
         \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
-  augroup END
+    autocmd BufWritePre *.go LspDocumentFormatSync
 endif
 
 if executable('terraform-lsp')
