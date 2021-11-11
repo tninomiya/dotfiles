@@ -119,6 +119,8 @@ bindkey '^h' peco-ssh
 alias ls='ls -G'
 alias ll='ls -la'
 alias tjssh='tjs cmd --env $(echo "dev\nstg\nperf\nprod" | peco)'
+alias awsenv='aws-vault exec $(aws-vault list --profiles | peco)'
+alias tf='terraform'
 
 setopt interactivecomments
 
