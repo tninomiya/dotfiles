@@ -2,7 +2,8 @@ syntax on                  " Enable syntax highlighting.
 filetype plugin indent on  " Enable file type based indentation.
 
 let mapleader = " "
-set spell spelllang=en_us
+set spell
+set spelllang=en,cjk
 
 set number                        " Display column numbers.
 " set relativenumber              " Display relative column numbers.
