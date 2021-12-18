@@ -29,14 +29,13 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-if executable('gopls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd BufWritePre *.go LspDocumentFormatSync
-endif
+let g:lsp_settings = {
+  \   'gopls': {
+  \     'initialization_options': {
+  \       'usePlaceholders': v:true,
+  \     },
+  \   },
+  \ }
 
 if executable('terraform-ls')
   au User lsp_setup call lsp#register_server({

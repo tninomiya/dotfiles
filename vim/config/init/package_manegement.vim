@@ -34,6 +34,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/vim-goimports'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 Plug 'iberianpig/tig-explorer.vim'
 
