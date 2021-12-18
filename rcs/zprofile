@@ -8,3 +8,5 @@ export PATH="$HOME/.zsh/completions:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 #export JAVA_HOME=`/usr/libexec/java_home -v 11`
 export GOPATH=$HOME/go
+export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
