@@ -1,8 +1,41 @@
-autocmd FileType defx call s:defx_my_settings()
+autocmd FileType defx call s:map_defx_functions()
+autocmd FileType defx call defx#custom#column('mark', {
+            \   'length':        1,
+            \   'readonly_icon': 'X',
+            \   'selected_icon': '*',
+            \ })
+autocmd FileType defx call defx#custom#column('indent', {
+            \   'indent': '  ',
+            \ })
+autocmd FileType defx call defx#custom#column('icon', {
+            \   'directory_icon': '▸',
+            \   'opened_icon':    '▾',
+            \   'root_icon':      '  ',
+            \ })
 
-function! s:defx_my_settings() abort
+autocmd VimEnter * execute 'Defx'
+nnoremap <silent> <Leader>e :<C-u> Defx <CR>
+nnoremap <silent> - :<C-U>:Defx `expand('%:p:h')` -search=`expand('%:p')` -buffer-name=defx<CR>))
+
+call defx#custom#option('_', {
+      \ 'winwidth': 40,
+      \ 'split': 'vertical',
+      \ 'direction': 'topleft',
+      \ 'show_ignored_files': 1,
+      \ 'buffer_name': 'defx',
+      \ 'toggle': 1,
+      \ 'resume': 1,
+      \ 'columns': 'indent:icons:filename:mark',
+      \ })
+
+autocmd BufWritePost * call defx#redraw()
+
+function! s:map_defx_functions() abort
+  " Define mappings
   nnoremap <silent><buffer><expr> <CR>
-   \ defx#do_action('drop')
+  \ defx#is_directory() ?
+  \ defx#do_action('open_tree', 'recursive:3') :
+  \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> c
   \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> m
@@ -11,12 +44,10 @@ function! s:defx_my_settings() abort
   \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> l
   \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> t
-  \ defx#do_action('open','tabnew')
   nnoremap <silent><buffer><expr> E
-  \ defx#do_action('drop', 'vsplit')
+  \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> P
-  \ defx#do_action('drop', 'pedit')
+  \ defx#do_action('preview')
   nnoremap <silent><buffer><expr> o
   \ defx#do_action('open_or_close_tree')
   nnoremap <silent><buffer><expr> K
@@ -66,18 +97,3 @@ function! s:defx_my_settings() abort
   \ defx#do_action('change_vim_cwd')
 endfunction
 
-autocmd VimEnter * execute 'Defx'
-nnoremap <silent> <Leader>- :<C-u> Defx <CR>
-
-call defx#custom#option('_', {
-      \ 'winwidth': 40,
-      \ 'split': 'vertical',
-      \ 'direction': 'topleft',
-      \ 'show_ignored_files': 1,
-      \ 'buffer_name': 'defx',
-      \ 'toggle': 1,
-      \ 'resume': 1,
-      \ })
-
-autocmd BufWritePost * call defx#redraw()
-autocmd BufEnter * call defx#redraw()

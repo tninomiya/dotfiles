@@ -3,3 +3,9 @@ repo = 'Shougo/defx.nvim'
 hook_add = '''
 source ~/.config/nvim/vimrc.d/defx.vim
 '''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
