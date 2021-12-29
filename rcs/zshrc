@@ -25,7 +25,7 @@ export LANG=en_US.UTF-8
 
 export PAGER=less
 export EDITOR=vim
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
 # HISTORY
 setopt hist_ignore_dups
