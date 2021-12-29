@@ -13,19 +13,20 @@ autocmd FileType defx call defx#custom#column('icon', {
             \   'root_icon':      '  ',
             \ })
 
-autocmd VimEnter * execute 'Defx'
+"autocmd VimEnter * execute 'Defx'
 nnoremap <silent> <Leader>e :<C-u> Defx <CR>
-nnoremap <silent> - :<C-U>:Defx `expand('%:p:h')` -search=`expand('%:p')` -buffer-name=defx<CR>))
+"nnoremap <silent> - :<C-U>:Defx `expand('%:p:h')` -search=`expand('%:p')` -buffer-name=defx<CR>))
 
 call defx#custom#option('_', {
       \ 'winwidth': 40,
       \ 'split': 'vertical',
       \ 'direction': 'topleft',
-      \ 'show_ignored_files': 1,
+      \ 'show_ignored_files': 0,
       \ 'buffer_name': 'defx',
       \ 'toggle': 1,
       \ 'resume': 1,
       \ 'columns': 'indent:icons:filename:mark',
+      \ 'sort': 'filename',
       \ })
 
 autocmd BufWritePost * call defx#redraw()
@@ -44,6 +45,8 @@ function! s:map_defx_functions() abort
   \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> l
   \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> t
+  \ defx#do_action('open','tabnew')
   nnoremap <silent><buffer><expr> E
   \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> P
