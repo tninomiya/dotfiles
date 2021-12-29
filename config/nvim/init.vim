@@ -1,6 +1,8 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+    let &packpath = &runtimepath
+    source ~/.vimrc
 let mapleader=","
-set clipboard+=unnamed
-set number
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
