@@ -9,3 +9,11 @@ repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
+repo = 'christianchiarulli/nvcode-color-schemes.vim'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'
+
