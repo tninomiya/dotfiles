@@ -25,7 +25,6 @@ call defx#custom#option('_', {
       \ 'buffer_name': 'defx',
       \ 'toggle': 1,
       \ 'resume': 1,
-      \ 'columns': 'indent:icons:filename:mark',
       \ 'sort': 'filename',
       \ })
 
