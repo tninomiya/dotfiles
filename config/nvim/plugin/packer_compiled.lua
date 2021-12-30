@@ -76,6 +76,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nightfox.nvim"] = {
+    config = { 'require"colorscheme"' },
     loaded = true,
     path = "/Users/tninomiya/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
@@ -84,6 +85,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tninomiya/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
+  },
+  ["nvim-tree.lua"] = {
+    config = { 'require"filetree"' },
+    loaded = true,
+    path = "/Users/tninomiya/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { 'require"treesitter"' },
@@ -105,14 +112,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require"nvim-lualine"
-time([[Config for lualine.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require"filetree"
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require"treesitter"
 time([[Config for nvim-treesitter]], false)
+-- Config for: nightfox.nvim
+time([[Config for nightfox.nvim]], true)
+require"colorscheme"
+time([[Config for nightfox.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require"nvim-lualine"
+time([[Config for lualine.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
