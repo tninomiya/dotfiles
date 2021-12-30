@@ -186,52 +186,86 @@ font:
 
 # Colors
 colors:
-  # Customized Hybrid
-  #primary:
-  #  background: '0x434c51'
-  #  foreground: '0xa5a8a6'
-  #normal:
-  #  black:   '0x35383b'
-  #  red:     '0xb294bb'
-  #  green:   '0xb5bd68'
-  #  yellow:  '0xe1a574'
-  #  blue:    '0x6c7a80'
-  #  magenta: '0x977ba0'
-  #  cyan:    '0x81a2be'
-  #  white:   '0x848b92'
-  #bright:
-  #  black:   '0x484c52'
-  #  red:     '0xd27c7b'
-  #  green:   '0xdffebe'
-  #  yellow:  '0xf0d189'
-  #  blue:    '0x96b1c9'
-  #  magenta: '0xbfa5c7'
-  #  cyan:    '0x9fc9c3'
-  #  white:   '0xfcf7e2'
+# Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
+# Copyright (c) 2017-present Sven Greb <code@svengreb.de>
 
-  # Colors (Hybrid)
+# Project:    Nord Alacritty
+# Version:    0.1.0
+# Repository: https://github.com/arcticicestudio/nord-alacritty
+# License:    MIT
+# References:
+#   https://github.com/alacritty/alacritty
   primary:
-    background: '#27292c'
-    foreground: '#d0d2d1'
+    background: '#2e3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
   normal:
-    black:   '#35383b'
-    red:     '#b05655'
-    green:   '#769972'
-    yellow:  '#e1a574'
-    blue:    '#7693ac'
-    magenta: '#977ba0'
-    cyan:    '#749e99'
-    white:   '#848b92'
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
   bright:
-    black:   '#484c52'
-    red:     '#d27c7b'
-    green:   '#dffebe'
-    yellow:  '#f0d189'
-    blue:    '#96b1c9'
-    magenta: '#bfa5c7'
-    cyan:    '#9fc9c3'
-    white:   '#fcf7e2'
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
 
+#  # Colors (Hybrid)
+#  primary:
+#    background: '#27292c'
+#    foreground: '#d0d2d1'
+#  normal:
+#    black:   '#35383b'
+#    red:     '#b05655'
+#    green:   '#769972'
+#    yellow:  '#e1a574'
+#    blue:    '#7693ac'
+#    magenta: '#977ba0'
+#    cyan:    '#749e99'
+#    white:   '#848b92'
+#  bright:
+#    black:   '#484c52'
+#    red:     '#d27c7b'
+#    green:   '#dffebe'
+#    yellow:  '#f0d189'
+#    blue:    '#96b1c9'
+#    magenta: '#bfa5c7'
+#    cyan:    '#9fc9c3'
+#    white:   '#fcf7e2'
+#
 #  # Iceberg
 #  primary:
 #    background: '0x161821'
@@ -334,7 +368,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.85
+background_opacity: 0.9
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
