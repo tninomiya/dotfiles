@@ -32,4 +32,10 @@ require'packer'.startup(function()
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
+  use {
+    'romgrk/barbar.nvim',
+    config = 'require"barbar-nvim"',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
 end)
