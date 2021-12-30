@@ -204,10 +204,18 @@ time([[Config for null-ls.nvim]], false)
 time([[Config for nvim-tree.lua]], true)
 require"filetree"
 time([[Config for nvim-tree.lua]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require"nvim-lualine"
+time([[Config for lualine.nvim]], false)
 -- Config for: nightfox.nvim
 time([[Config for nightfox.nvim]], true)
 require"colorscheme"
 time([[Config for nightfox.nvim]], false)
+
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require"treesitter"
 if should_profile then save_profiles() end
 
 end)
