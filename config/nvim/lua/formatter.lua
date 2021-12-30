@@ -7,6 +7,7 @@ null_ls.config {
     }),
     null_ls.builtins.formatting.fixjson,
     null_ls.builtins.formatting.goimports,
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Source-specific-Configuration#rustfmt
     null_ls.builtins.formatting.rustfmt.with({
       extra_args = function(params)
         local Path = require("plenary.path")
