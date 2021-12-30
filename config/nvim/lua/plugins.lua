@@ -8,14 +8,14 @@ require'packer'.startup(function()
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = 'require"treesitter"',
+    config = 'require("treesitter")',
     run = ':TSUpdate'
   }
 
   use {'shaunsingh/nord.nvim'}
   use {
     'EdenEast/nightfox.nvim',
-    config = 'require"colorscheme"'
+    config = 'require("colorscheme")'
   }
 
   use {
@@ -23,24 +23,24 @@ require'packer'.startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    config = 'require"filetree"'
+    config = 'require("filetree")'
   }
 
   use {
     'nvim-lualine/lualine.nvim',
-    config = 'require"nvim-lualine"',
+    config = 'require("nvim-lualine")',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   use {
     'romgrk/barbar.nvim',
-    config = 'require"barbar-nvim"',
+    config = 'require("barbar-nvim")',
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
   use {
     'nvim-telescope/telescope.nvim',
-    config = 'require"telescope-conf"',
+    config = 'require("telescope-conf")',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
@@ -48,21 +48,21 @@ require'packer'.startup(function()
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  use {"neovim/nvim-lspconfig"}
-  use {"williamboman/nvim-lsp-installer"}
-  use {"hrsh7th/nvim-cmp"}
-  use {"hrsh7th/cmp-nvim-lsp"}
-  use {"hrsh7th/cmp-vsnip"}
-  use {"hrsh7th/cmp-buffer"}
+  use {'neovim/nvim-lspconfig'}
+  use {'williamboman/nvim-lsp-installer'}
+  use {'hrsh7th/nvim-cmp'}
+  use {'hrsh7th/cmp-nvim-lsp'}
+  use {'hrsh7th/cmp-vsnip'}
+  use {'hrsh7th/cmp-buffer'}
 
   use {
-      "hrsh7th/vim-vsnip",
+      'hrsh7th/vim-vsnip',
       requires = {'hrsh7th/vim-vsnip-integ'}
   }
 
   use {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = 'require"formatter"',
+    'jose-elias-alvarez/null-ls.nvim',
+    config = 'require("formatter")',
     requires = { "nvim-lua/plenary.nvim" }
   }
 

@@ -4,4 +4,4 @@ require('plugins')
 require('terminal')
 require('lsp')
 
-vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
+vim.cmd('autocmd BufWritePost plugins.lua PackerCompile')
