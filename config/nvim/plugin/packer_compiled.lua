@@ -129,30 +129,30 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require"telescope-conf"
-time([[Config for telescope.nvim]], false)
--- Config for: barbar.nvim
-time([[Config for barbar.nvim]], true)
-require"barbar-nvim"
-time([[Config for barbar.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require"filetree"
-time([[Config for nvim-tree.lua]], false)
 -- Config for: nightfox.nvim
 time([[Config for nightfox.nvim]], true)
 require"colorscheme"
 time([[Config for nightfox.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require"nvim-lualine"
-time([[Config for lualine.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require"treesitter"
 time([[Config for nvim-treesitter]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+require"barbar-nvim"
+time([[Config for barbar.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require"telescope-conf"
+time([[Config for telescope.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require"nvim-lualine"
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require"filetree"
+time([[Config for nvim-tree.lua]], false)
 if should_profile then save_profiles() end
 
 end)
