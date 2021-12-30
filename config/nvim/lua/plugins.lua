@@ -48,4 +48,6 @@ require'packer'.startup(function()
   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
 end)
