@@ -3,22 +3,33 @@ local vim = vim
 local actions = require'telescope.actions'
 
 require'telescope.init'.setup{ defaults = {
-    prompt_prefix = "🔍",
-    mappings = {
-      i = {
-        --["<c-c>"] = false,
-        ["<c-x>"] = actions.select_horizontal,
-        ["<c-v>"] = actions.select_vertical
-      },
-      n = {
-        --["<c-[>"] = actions.close,
-        --["<c-c>"] = false,
-        ["<c-x>"] = actions.select_horizontal,
-        ["<c-v>"] = actions.select_vertical
-      }
+  prompt_prefix = "🔍",
+  mappings = {
+    i = {
+      --["<c-c>"] = false,
+      ["<c-x>"] = actions.select_horizontal,
+      ["<c-v>"] = actions.select_vertical
+    },
+    n = {
+      --["<c-[>"] = actions.close,
+      --["<c-c>"] = false,
+      ["<c-x>"] = actions.select_horizontal,
+      ["<c-v>"] = actions.select_vertical
     }
- }
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    }
+  }
 }
+}
+
+require('telescope').load_extension('fzf')
 
 local util = require('util')
 local opts = { noremap=true, silent=true }

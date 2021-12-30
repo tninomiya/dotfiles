@@ -44,4 +44,8 @@ require'packer'.startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- Better sorting performance
+  -- https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
 end)
