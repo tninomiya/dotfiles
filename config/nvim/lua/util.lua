@@ -4,8 +4,8 @@ local util = {}
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
 
 util.opt = function (scope, key, value)
-    scopes[scope][key] = value
-    if scope ~= 'o' then scopes['o'][key] = value end
+  scopes[scope][key] = value
+  if scope ~= 'o' then scopes['o'][key] = value end
 end
 
 util.map = function (mode, lhs, rhs, opts)
