@@ -45,7 +45,7 @@ lsp_installer.on_server_ready(function(server)
     vim.cmd [[ do User LspAttachBuffers ]]
 end)
 
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt:append({"menuone"})
 
 local cmp = require"cmp"
 cmp.setup({
