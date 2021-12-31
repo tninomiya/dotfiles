@@ -8,14 +8,14 @@ require'packer'.startup(function()
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = 'require("treesitter")',
+    config = 'require("plug.treesitter")',
     run = ':TSUpdate'
   }
 
   use {'shaunsingh/nord.nvim'}
   use {
     'EdenEast/nightfox.nvim',
-    config = 'require("colorscheme")'
+    config = 'require("plug.colorscheme")'
   }
 
   use {
@@ -23,24 +23,24 @@ require'packer'.startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    config = 'require("filetree")'
+    config = 'require("plug.nvim-tree")'
   }
 
   use {
     'nvim-lualine/lualine.nvim',
-    config = 'require("nvim-lualine")',
+    config = 'require("plug.lualine")',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   use {
     'romgrk/barbar.nvim',
-    config = 'require("barbar-nvim")',
+    config = 'require("plug.barbar")',
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
   use {
     'nvim-telescope/telescope.nvim',
-    config = 'require("telescope-conf")',
+    config = 'require("plug.telescope")',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
@@ -66,7 +66,7 @@ require'packer'.startup(function()
 
   use {
     'jose-elias-alvarez/null-ls.nvim',
-    config = 'require("formatter")',
+    config = 'require("plug.formatter")',
     requires = { "nvim-lua/plenary.nvim" }
   }
 
