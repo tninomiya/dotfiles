@@ -56,8 +56,12 @@ require'packer'.startup(function()
   use {'hrsh7th/cmp-buffer'}
 
   use {
-      'hrsh7th/vim-vsnip',
-      requires = {'hrsh7th/vim-vsnip-integ'}
+    'hrsh7th/vim-vsnip-integ',
+    requires = {'hrsh7th/vim-vsnip'}
+  }
+
+  use {
+    "ray-x/lsp_signature.nvim",
   }
 
   use {
