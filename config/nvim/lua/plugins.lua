@@ -70,4 +70,10 @@ require'packer'.startup(function()
     requires = { "nvim-lua/plenary.nvim" }
   }
 
+  use {
+    "folke/trouble.nvim",
+    config = 'require("plug.trouble")',
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+
 end)
