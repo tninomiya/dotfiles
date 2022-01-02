@@ -76,4 +76,9 @@ require'packer'.startup(function()
     requires = "kyazdani42/nvim-web-devicons",
   }
 
+  use {
+    'sakhnik/nvim-gdb',
+    run = ':!./install.sh'
+  }
+
 end)
