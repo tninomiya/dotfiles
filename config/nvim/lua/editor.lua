@@ -16,3 +16,21 @@ util.opt('w', 'cursorline', true)
 util.bind('g', 'mapleader', ',')
 
 vim.opt.clipboard:append({'unnamed','unnamedplus'})
+
+util.map('n', 'd', 'h') 
+util.map('n', 'h', 'j') 
+util.map('n', 't', 'k') 
+util.map('n', 'n', 'l') 
+
+util.map('v', 'd', 'h') 
+util.map('v', 'h', 'j') 
+util.map('v', 't', 'k') 
+util.map('v', 'n', 'l') 
+
+util.map('n', 'e', 'd') 
+util.map('n', 'ee', 'dd') 
+util.map('v', 'e', 'd') 
+util.map('v', 'ee', 'dd') 
+
+util.map('n', 'r', 'n') 
+util.map('v', 'r', 'n') 
