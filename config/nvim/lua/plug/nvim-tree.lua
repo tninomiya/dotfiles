@@ -4,9 +4,9 @@ util.map("n", "<leader>e", ":NvimTreeToggle<CR>", {})
 -- following options are the default
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 -- default mappings
-local list = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
-  { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
+local map_list = {
+  { key = {"<CR>", "o"},                  cb = tree_cb("edit") },
+  { key = ".",                            cb = tree_cb("cd") },
   { key = "<C-v>",                        cb = tree_cb("vsplit") },
   { key = "<C-x>",                        cb = tree_cb("split") },
   { key = "<C-t>",                        cb = tree_cb("tabnew") },
@@ -86,8 +86,8 @@ require'nvim-tree'.setup {
     side = 'left',
     auto_resize = false,
     mappings = {
-      custom_only = false,
-      list = {}
+      custom_only = true,
+      list = map_list
     },
     number = false,
     relativenumber = false,
