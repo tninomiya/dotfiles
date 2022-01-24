@@ -1,6 +1,7 @@
 ## dependencies
 
 ```
+https://github.com/wbthomason/packer.nvim
 brew install ripgrep
 brew install ag
 ```
