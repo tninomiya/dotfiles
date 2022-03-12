@@ -40,7 +40,6 @@ local map_list = {
 }
 
 vim.cmd([[
-let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
 let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
 let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
 let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
@@ -57,6 +56,14 @@ require'nvim-tree'.setup {
   open_on_tab         = false,
   hijack_cursor       = true,
   update_cwd          = true,
+  actions  = {
+    change_dir = {
+      enable = true,
+    },
+    open_file = {
+      quit_on_open = true,
+    }
+  },
   update_to_buf_dir   = {
     enable = true,
     auto_open = true,
@@ -85,7 +92,7 @@ require'nvim-tree'.setup {
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 500,
   },
   view = {
