@@ -3,7 +3,11 @@ local null_ls = require("null-ls")
 null_ls.setup {
   sources = {
     null_ls.builtins.formatting.prettier.with({
-      filetypes = { "html", "json", "yaml", "markdown" },
+      filetypes = { "html", "json", "markdown" },
+      extra_args = {
+        "--tab-width", 2,
+        "--use-tabs", "false",
+      },
     }),
     null_ls.builtins.formatting.fixjson,
     null_ls.builtins.formatting.goimports,
