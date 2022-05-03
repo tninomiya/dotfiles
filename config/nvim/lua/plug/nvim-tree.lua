@@ -67,10 +67,6 @@ require'nvim-tree'.setup {
       quit_on_open = true,
     }
   },
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
   diagnostics = {
     enable = false,
     icons = {
@@ -103,7 +99,6 @@ require'nvim-tree'.setup {
     height = 30,
     hide_root_folder = false,
     side = 'left',
-    auto_resize = false,
     mappings = {
       custom_only = true,
       list = map_list
@@ -111,6 +106,10 @@ require'nvim-tree'.setup {
     number = false,
     relativenumber = false,
     signcolumn = "yes"
+  },
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
   },
   trash = {
     cmd = "trash",
