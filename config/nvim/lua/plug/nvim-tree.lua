@@ -44,6 +44,10 @@ let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and
 let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
 let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
 let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+
+" auto close
+" https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 ]])
 
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
@@ -52,7 +56,6 @@ require'nvim-tree'.setup {
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
-  auto_close          = true,
   open_on_tab         = false,
   hijack_cursor       = true,
   update_cwd          = true,
