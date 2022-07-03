@@ -40,11 +40,6 @@ local map_list = {
 }
 
 vim.cmd([[
-let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
-let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
-let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
-let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
-
 " auto close
 " https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
@@ -59,6 +54,7 @@ require'nvim-tree'.setup {
   open_on_tab         = false,
   hijack_cursor       = true,
   update_cwd          = true,
+  respect_buf_cwd     = true,
   actions  = {
     change_dir = {
       enable = true,
@@ -114,6 +110,11 @@ require'nvim-tree'.setup {
   trash = {
     cmd = "trash",
     require_confirm = true
-  }
+  },
+  renderer = {
+    add_trailing = true,
+    highlight_opened_files = "3",
+    group_empty = true
+  },
 }
 
