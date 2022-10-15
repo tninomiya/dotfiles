@@ -43,6 +43,7 @@ local keymap_telescope_func = {
   [" b"] = "require'telescope.builtin'.buffers{show_all_buffers = true}",
   [" s"] = "require'telescope.builtin'.lsp_document_symbols()",
   [" r"] = "require'telescope.builtin'.lsp_references()",
+  [" i"] = "require'telescope.builtin'.lsp_implementations()",
   [" o"] = "require'telescope.builtin'.oldfiles()",
   ["<leader>gs"] = "require'telescope.builtin'.git_status()",
   ["<leader>gb"] = "require'telescope.builtin'.git_branches()",
