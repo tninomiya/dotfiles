@@ -49,8 +49,8 @@ require'packer'.startup(function()
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use {'neovim/nvim-lspconfig'}
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+  use {'williamboman/mason.nvim'}
+  use {'williamboman/mason-lspconfig.nvim'}
 
   use {'hrsh7th/nvim-cmp'}
   use {'hrsh7th/cmp-nvim-lsp'}
@@ -81,6 +81,19 @@ require'packer'.startup(function()
   use {
     'sakhnik/nvim-gdb',
     run = ':!./install.sh'
+  }
+
+  use { 
+    "iamcco/markdown-preview.nvim", 
+    run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }
+  }
+
+  use {
+    "mattn/vim-maketable"
+  }
+
+  use {
+    "tpope/vim-fugitive"
   }
 
 end)
