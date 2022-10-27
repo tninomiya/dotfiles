@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.document_formatting = false
 
   -- https://github.com/ray-x/lsp_signature.nvim
   require "lsp_signature".on_attach({
@@ -33,19 +33,22 @@ local on_attach = function(client, bufnr)
   }, bufnr)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+ local mason = require('mason')
+ mason.setup({
+   ui = {
+     icons = {
+       package_installed = "✓",
+       package_pending = "➜",
+       package_uninstalled = "✗"
+     }
+   }
+ })
 
 require('mason-lspconfig').setup_handlers({ function(server)
   local opt = {
-    -- -- Function executed when the LSP server startup
-    -- on_attach = function(client, bufnr)
-    --   local opts = { noremap=true, silent=true }
-    --   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    --   vim.cmd 'autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)'
-    -- end,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    )
+    -- Function executed when the LSP server startup
+    on_attach = on_attach,
+    capabilities = require('cmp_nvim_lsp').default_capabilities()
   }
   require('lspconfig')[server].setup(opt)
 end })
