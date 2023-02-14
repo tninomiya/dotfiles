@@ -2,7 +2,6 @@ typeset -gU cdpath fpath mailpath path
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.bin:$PATH
 export PATH=~/go/bin:$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="$HOME/.zsh/completions:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -10,3 +9,5 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export GOPATH=$HOME/go
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
