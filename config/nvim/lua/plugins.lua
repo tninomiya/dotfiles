@@ -78,11 +78,6 @@ require'packer'.startup(function()
     requires = "kyazdani42/nvim-web-devicons",
   }
 
-  use {
-    'sakhnik/nvim-gdb',
-    run = ':!./install.sh'
-  }
-
   use { 
     "iamcco/markdown-preview.nvim", 
     run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }
@@ -94,6 +89,10 @@ require'packer'.startup(function()
 
   use {
     "tpope/vim-fugitive"
+  }
+
+  use {
+    "knsh14/vim-github-link"
   }
 
 end)

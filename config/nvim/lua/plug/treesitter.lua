@@ -11,6 +11,7 @@ require'nvim-treesitter.configs'.setup {
     "cpp",
     "elm",
     "haskell",
+    "hcl",
     "html",
     "http",
     "java",
