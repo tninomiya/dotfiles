@@ -31,6 +31,7 @@ require'nvim-treesitter.configs'.setup {
     "rust",
     "scala",
     "sparql",
+    "terraform",
     "toml",
     "tsx",
     "typescript",

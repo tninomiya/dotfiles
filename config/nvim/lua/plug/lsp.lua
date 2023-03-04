@@ -43,7 +43,7 @@ mason.setup({
 })
 
 require("mason-lspconfig").setup {
-    ensure_installed = { "gopls", "python-lsp-server", "rust_analyzer", "terraform-ls", "tflint" },
+    ensure_installed = { "gopls", "pylsp", "rust_analyzer", "terraformls", "tflint" },
 }
 
 require('mason-lspconfig').setup_handlers({ function(server)
