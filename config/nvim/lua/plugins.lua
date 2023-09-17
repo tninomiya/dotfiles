@@ -48,9 +48,9 @@ require("lazy").setup({
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	--   -- Better sorting performance
-	--   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions
 
+	-- Better sorting performance
+	-- https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
@@ -74,17 +74,13 @@ require("lazy").setup({
 	},
 
 	{
-		"mattn/efm-langserver",
-		config = function()
-			require("plug/efm")
-		end,
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/cmp-buffer",
+		},
 	},
-
-	{ "hrsh7th/nvim-cmp" },
-	-- cmp sources
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/cmp-buffer" },
 
 	{
 		"hrsh7th/vim-vsnip-integ",
