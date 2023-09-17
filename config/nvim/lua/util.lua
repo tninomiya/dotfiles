@@ -1,7 +1,7 @@
 local util = {}
 -- https://neovim.io/doc/user/lua.html#lua-vim-variables
 -- https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
+local scopes = {o = vim.o, g = vim.go, b = vim.bo, w = vim.wo}
 
 util.opt = function (scope, key, value)
   scopes[scope][key] = value

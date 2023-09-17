@@ -1,8 +1,4 @@
 require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
   ensure_installed = {
     "bash",
     "dockerfile",
@@ -10,7 +6,6 @@ require'nvim-treesitter.configs'.setup {
     "comment",
     "cpp",
     "elm",
-    "haskell",
     "hcl",
     "html",
     "http",
@@ -26,16 +21,16 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "query",
     "regex",
-    "rst",
     "ruby",
-    "rust",
-    "scala",
     "sparql",
     "terraform",
     "toml",
-    "tsx",
-    "typescript",
     "vim",
     "yaml",
-  }
+  },
+    highlight = { enable = true },
+  sync_install = false,
+  indent = { enable = true },
+  auto_install = false,
+
 }

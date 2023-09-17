@@ -12,6 +12,8 @@ util.opt('o', 'updatetime', 100)
 util.opt('o', 'autoindent', true)
 util.opt('o', 'smartindent', true)
 util.opt('w', 'cursorline', true)
+util.opt('g', 'ignorecase', true)
+util.opt('g', 'smartcase', true)
 
 util.bind('g', 'mapleader', ',')
 

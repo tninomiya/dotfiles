@@ -31,12 +31,14 @@ local null_ls = require("null-ls")
 null_ls.setup {
   sources = {
     null_ls.builtins.formatting.prettier.with({
+      --filetypes = { "html", "json" },
       filetypes = { "html", "json", "markdown" },
       extra_args = {
         "--tab-width", 2,
         "--use-tabs", "false",
       },
     }),
+    null_ls.builtins.formatting.markdown_toc,
     null_ls.builtins.formatting.fixjson,
     null_ls.builtins.formatting.goimports,
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Source-specific-Configuration#rustfmt
@@ -58,7 +60,8 @@ null_ls.setup {
       end,
     }),
     null_ls.builtins.formatting.terraform_fmt,
-    null_ls.builtins.formatting.taplo
+    null_ls.builtins.formatting.stylua
+    --null_ls.builtins.formatting.taplo
   },
 
   on_attach = on_attach,
