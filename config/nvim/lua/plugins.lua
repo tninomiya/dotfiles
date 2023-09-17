@@ -1,98 +1,123 @@
-vim.cmd[[packadd packer.nvim]]
+require("lazy").setup({
+	{
+		"shaunsingh/nord.nvim",
+		-- https://github.com/folke/lazy.nvim#examples
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			-- load the colorscheme here
+			vim.cmd([[colorscheme nord]])
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		--     build = ':TSUpdate',
+		config = function()
+			require("plug.treesitter")
+		end,
+	},
+	{
+		"kyazdani42/nvim-tree.lua",
+		dependencies = {
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = function()
+			require("plug.nvim-tree")
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plug.lualine")
+		end,
+		dependencies = {
+			"kyazdani42/nvim-web-devicons",
+		},
+	},
+	{
+		"romgrk/barbar.nvim",
+		config = function()
+			require("plug.barbar")
+		end,
+		dependencies = { "kyazdani42/nvim-web-devicons" },
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("plug.telescope")
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	--   -- Better sorting performance
+	--   -- https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions
 
-require'packer'.startup(function()
-  use {
-    'wbthomason/packer.nvim',
-    opt = true
-  }
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    config = 'require("plug.treesitter")',
-    run = ':TSUpdate'
-  }
+	{ "neovim/nvim-lspconfig" },
+	{ "williamboman/mason.nvim" },
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("plug.lsp")
+		end,
+	},
 
-  use {'shaunsingh/nord.nvim'}
-  use {
-    'EdenEast/nightfox.nvim',
-    config = 'require("plug.colorscheme")'
-  }
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("plug.formatter")
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    },
-    config = 'require("plug.nvim-tree")'
-  }
+	{
+		"mattn/efm-langserver",
+		config = function()
+			require("plug/efm")
+		end,
+	},
 
-  use {
-    'nvim-lualine/lualine.nvim',
-    config = 'require("plug.lualine")',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+	{ "hrsh7th/nvim-cmp" },
+	-- cmp sources
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-vsnip" },
+	{ "hrsh7th/cmp-buffer" },
 
-  use {
-    'romgrk/barbar.nvim',
-    config = 'require("plug.barbar")',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
+	{
+		"hrsh7th/vim-vsnip-integ",
+		dependencies = { "hrsh7th/vim-vsnip" },
+	},
 
-  use {
-    'nvim-telescope/telescope.nvim',
-    config = 'require("plug.telescope")',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+	"ray-x/lsp_signature.nvim",
+	{
+		"folke/trouble.nvim",
+		config = function()
+			require("plug.trouble")
+		end,
+		dependencies = "kyazdani42/nvim-web-devicons",
+	},
 
-  -- Better sorting performance
-  -- https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	{
+		"iamcco/markdown-preview.nvim",
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
 
-  use {'neovim/nvim-lspconfig'}
-  use {'williamboman/mason.nvim'}
-  use {'williamboman/mason-lspconfig.nvim'}
+	{
+		"mattn/vim-maketable",
+	},
 
-  use {'hrsh7th/nvim-cmp'}
-  use {'hrsh7th/cmp-nvim-lsp'}
-  use {'hrsh7th/cmp-vsnip'}
-  use {'hrsh7th/cmp-buffer'}
+	{
+		"tpope/vim-fugitive",
+	},
 
-  use {
-    'hrsh7th/vim-vsnip-integ',
-    requires = {'hrsh7th/vim-vsnip'}
-  }
-
-  use {
-    "ray-x/lsp_signature.nvim",
-  }
-
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = 'require("plug.formatter")',
-    requires = { "nvim-lua/plenary.nvim" }
-  }
-
-  use {
-    "folke/trouble.nvim",
-    config = 'require("plug.trouble")',
-    requires = "kyazdani42/nvim-web-devicons",
-  }
-
-  use { 
-    "iamcco/markdown-preview.nvim", 
-    run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }
-  }
-
-  use {
-    "mattn/vim-maketable"
-  }
-
-  use {
-    "tpope/vim-fugitive"
-  }
-
-  use {
-    "knsh14/vim-github-link"
-  }
-
-end)
+	{
+		"knsh14/vim-github-link",
+	},
+})
