@@ -5,3 +5,4 @@ vim/undodir/*
 vim/view/*
 vim/swap/*
 vim/.netrwhist
+config/gcloud/*
